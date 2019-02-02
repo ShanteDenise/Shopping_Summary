@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Row, Col, Tooltip, OverlayTrigger } from "react-bootstrap";
+import { Row, Col, OverlayTrigger } from "react-bootstrap";
 
 var styles = {
   pickupSavings: {
@@ -13,10 +13,7 @@ var styles = {
 
 class PickupSavings extends Component {
   render() {
-      const tooltip = {
-        
-          
-      }
+   
       
 
     return (

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Collapse, Well, Media, Row, Col } from "react-bootstrap";
+import { Button, Collapse, Media, Row, Col } from "react-bootstrap";
 
 class ItemDetail extends Component {
   state = {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Collapse, Form, Col, FormGroup, ControlLabel, FormControl, Row} from 'react-bootstrap';
+import { Button, Collapse, Form, Col, FormGroup, Row} from 'react-bootstrap';
 import { handleChange } from '../actions/promoCodeActions';
 import { connect} from 'react-redux'
 
@@ -30,7 +30,7 @@ import { connect} from 'react-redux'
                   <Form.Control 
                   type="text"
                   placeholder="Enter promo code"
-                  value={this.props.PromoCode}
+                  value={this.props.promoCode}
                   onChange={this.handleChange}
                   />
                   </FormGroup >
@@ -38,7 +38,7 @@ import { connect} from 'react-redux'
                   block 
                   bsStyle="sucesss"
                   className="btn-round"
-                  diabaled={this.props.isDisabled}
+                  disabled={this.props.isDisabled}
                   onClick={this.props.giveDiscount}
                   >Apply</Button>
               </Form>
