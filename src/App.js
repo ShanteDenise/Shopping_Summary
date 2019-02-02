@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import {Col, Container} from 'reactstrap';
+import {Col, Container} from 'react-bootstrap'
 import Subtotal from './components/Subtotal';
 import './App.css';
+import PickupSavings from './components/PickupSavings';
 
 class App extends Component {
 
@@ -14,6 +15,10 @@ class App extends Component {
       <Container>
       <Col className="purchase-card">
       <Subtotal price={this.state.total.toFixed(2)}/>
+      </Col>
+      <Col>
+      <PickupSavings/>
+      
       </Col>
       </Container>
     );
