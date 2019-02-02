@@ -8,6 +8,8 @@ import './App.css';
 import EstimatedTotal from './components/EstimatedTotal';
 import PromoCode from './components/PromoCode';
 
+import { connect } from 'react-redux';
+import { handleChange } from './actions/promoCodeActions'
 
 class App extends Component {
 
@@ -15,7 +17,7 @@ class App extends Component {
     total: 100,
     PickupSavings: -3.85,
     taxes: 0,
-    EstimatedTotal: 0,
+    estimatedTotal: 0,
     disabledPromoButton: false
   }
 
@@ -25,10 +27,23 @@ class App extends Component {
     },
     function(){
       this.setState({
-        EstimatedTotal: this.state.total + this.state.PickupSavings + this.state.taxes 
+        estimatedTotal: this.state.total + this.state.PickupSavings + this.state.taxes 
       })
     })
   }
+  giveDiscountHandler = () => {
+    if (this.props.promoCode === 'DISCOUNT') {
+      this.setState(
+        { estimatedTotal: this.state.estimatedTotal * 0.9 },
+        function() {
+          this.setState({
+            disablePromoButton: true
+          });
+        }
+      );
+    }
+  };
+  
 
   render() {
     return (
@@ -38,8 +53,8 @@ class App extends Component {
       <PickupSavings price={this.state.PickupSavings}/>
       <TaxesFees taxes={this.state.taxes.toFixed(2)}/>
       <hr />
-      <EstimatedTotal price={this.state.EstimatedTotal.toFixed(2)}/>
-      <ItemDetail price={this.state.EstimatedTotal.toFixed(2)}/>
+      <EstimatedTotal price={this.state.estimatedTotal.toFixed(2)}/>
+      <ItemDetail price={this.state.estimatedTotal.toFixed(2)}/>
       <hr />
       <PromoCode
         giveDiscount={() => this.giveDiscountHandler()}
@@ -52,5 +67,9 @@ class App extends Component {
     );
   }
 }
+const mapStateToProps = state => ({
+  promoCode: state.promoCode.value
+});
 
-export default App;
+export default connect(mapStateToProps, {handleChange})(App)
+

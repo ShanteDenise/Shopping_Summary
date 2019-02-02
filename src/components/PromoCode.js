@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import { Button, Collapse, Form, Col, FormGroup, ControlLabel, FormControl, Row} from 'react-bootstrap';
+import { handleChange } from '../actions/promoCodeActions';
+import { connect} from 'react-redux'
+
 
  class PromoCode extends Component {
      state ={
@@ -51,4 +54,8 @@ import { Button, Collapse, Form, Col, FormGroup, ControlLabel, FormControl, Row}
   }
 }
 
-export default PromoCode
+const mapStateToProps = state => ({
+    promoCode: state.promoCode.value
+  });
+  
+  export default connect(mapStateToProps, { handleChange })(PromoCode);
