@@ -1,17 +1,32 @@
-.container{
+.container {
   margin-top: 10px;
 }
 
 .purchase-card {
-  height: 200px;
   width: 350px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   padding: 1rem;
   margin: 0 auto;
-  
 }
 
-.show-grid{
+.show-grid {
   display: flex;
+}
 
+.item-details-button:focus {
+  outline: none;
+}
+.price-strike {
+  text-decoration-line: line-through;
+  color: grey;
+}
+
+#item-card {
+  padding: 5px;
+  margin-top: 10px;
+  border: solid 2px rgba(128, 128, 128, 0.226);
+  border-radius: 7px;
+}
+.promo-code-button:focus{
+  outline:none
 }
